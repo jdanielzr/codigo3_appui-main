@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:codigo3_app_ui/widgets/detail_body.dart';
+import 'package:codigo3_app_ui/widgets/detail_bottom.dart';
+import 'package:codigo3_app_ui/widgets/detail_head.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key});
@@ -8,21 +11,22 @@ class DetailPage extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      body: Column(
+      body: Stack(
         children: [
-          Container(
-            height: height * 0.64,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.amber,
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                  "https://images.pexels.com/photos/931018/pexels-photo-931018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                ),
-              ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 80),
+            child: ListView(
+              children: [
+                Column(
+                  children: [
+                    DetailHead(height: height),
+                    const DetailBody(),
+                  ],
+                )
+              ],
             ),
           ),
+          const DetailBottom()
         ],
       ),
     );
