@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ItemSliderWidget extends StatelessWidget {
-  Function onTap;
+class ItemSlider extends StatelessWidget {
+  final Function onTap;
 
-  ItemSliderWidget({
+  const ItemSlider({
+    super.key,
     required this.onTap,
   });
 
@@ -24,7 +25,7 @@ class ItemSliderWidget extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.amber,
           borderRadius: BorderRadius.circular(12.0),
-          image: DecorationImage(
+          image: const DecorationImage(
             fit: BoxFit.cover,
             image: NetworkImage(
                 "https://images.pexels.com/photos/3538245/pexels-photo-3538245.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
@@ -33,7 +34,7 @@ class ItemSliderWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.end,
-          children: [
+          children: const [
             Text(
               "Lorem ipsum fgty",
               style: TextStyle(
